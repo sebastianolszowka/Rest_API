@@ -1,7 +1,7 @@
 # REST API – Decyzja kredytowa na podstawie wieku i dochodu
 
-Projekt stworzony przez Sebastiana Olszówkę  
-W ramach zajęć z analizy danych na SGH – 2025
+Sebastian Olszówka
+Analiza danych w czasie rzeczywistym
 
 ## Opis projektu
 
