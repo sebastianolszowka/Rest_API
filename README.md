@@ -1,6 +1,21 @@
-# REST API with Decision Rule
+# REST API – Decyzja kredytowa na podstawie wieku i dochodu
 
-## Run locally
+Projekt stworzony przez Sebastiana Olszówkę  
+W ramach zajęć z analizy danych na SGH – 2025
+
+## Opis projektu
+
+Prosta aplikacja REST API stworzona z użyciem frameworka Flask, służąca do podejmowania decyzji kredytowej na podstawie wieku i dochodu.  
+W aplikacji zaimplementowano:
+
+- API z obsługą żądań POST
+- Regułę decyzyjną
+- Standaryzację danych
+- Testy jednostkowe
+- Obsługę błędów
+- Możliwość uruchomienia z Docker
+
+## Uruchomienie lokalnie
 
 ```bash
 python3 -m venv .venv
@@ -9,15 +24,40 @@ pip install -r requirements.txt
 python app.py
 ```
 
-## Run with Docker
+## Uruchomienie z użyciem Docker
 
 ```bash
 docker build -t modelML .
 docker run -p 8000:8000 modelML
 ```
 
-## Test the API
+## Testowanie API (przykład zapytania)
 
 ```bash
-curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" -d '{"age": 35, "income": 60000}'
+curl -X POST http://localhost:8000/predict \
+     -H "Content-Type: application/json" \
+     -d '{"age": 35, "income": 60000}'
 ```
+
+Odpowiedź:
+```json
+{
+  "age_standardized": 0.36,
+  "income_standardized": 0.6,
+  "decision": "Approved"
+}
+```
+
+## Struktura plików
+
+- app.py – główna aplikacja Flask
+- requirements.txt – lista zależności
+- test_app.py – test jednostkowy
+- Dockerfile – konfiguracja kontenera
+- basic_api.py, error_handling_api.py, decorator_api.py – wcześniejsze wersje API
+
+## Autor
+
+Sebastian Olszówka  
+so140897@student.sgh.waw.pl 
+https://github.com/sebastianolszowka
